@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: Ilham
+      changes:
+        - createTable:
+            tableName: t_file
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: post_id
+                  type: BIGINT
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+
+  - changeSet:
+      id: 5
+      author: Ilham
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: t_file
+            baseColumnNames: post_id
+            constraintName: fk_file_post
+            referencedTableName: t_post
+            referencedColumnNames: id
+
+  - changeSet:
+      id: 17
+      author: Ilham
+      changes:
+        - addColumn:
+            tableName: t_file
+            columns:
+              - column:
+                  name: url
+                  type: VARCHAR(255)

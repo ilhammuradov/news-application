@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+        id: 3
+        author: Ilham
+        changes:
+          - createTable:
+              tableName: t_post
+              columns:
+                - column:
+                    name: id
+                    type: BIGINT
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: title
+                    type: VARCHAR(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: content
+                    type: TEXT
+                - column:
+                    name: created_at
+                    type: TIMESTAMP
+                - column:
+                    name: updated_at
+                    type: TIMESTAMP

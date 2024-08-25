@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: 6
+      author: Ilham
+      changes:
+        - createTable:
+            tableName: t_post_authors
+            columns:
+              - column:
+                  name: posts_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: authors_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 7
+      author: Ilham
+      changes:
+        - addPrimaryKey:
+            columnNames: posts_id, authors_id
+            constraintName: pk_author_posts
+            tableName: t_post_authors
+
+  - changeSet:
+      id: 8
+      author: Ilham
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: t_post_authors
+            baseColumnNames: posts_id
+            constraintName: fk_post_author_post
+            referencedTableName: t_post
+            referencedColumnNames: id
+
+  - changeSet:
+      id: 9
+      author: Ilham
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: t_post_authors
+            baseColumnNames: authors_id
+            constraintName: fk_post_author_author
+            referencedTableName: t_author
+            referencedColumnNames: id

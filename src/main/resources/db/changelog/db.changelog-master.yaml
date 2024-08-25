@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/001.create-table-author.yaml
+
+  - include:
+      file: db/changelog/002.create-table-category.yml
+
+  - include:
+      file: db/changelog/003.create-table-post.yml
+
+  - include:
+      file: db/changelog/004.create-table-file.yml
+
+  - include:
+      file: db/changelog/005.create-table-post-author.yml
+
+  - include:
+      file: db/changelog/006.create-table-post-category.yml
+
+  - include:
+      file: db/changelog/007.create-table-post-files.yml
